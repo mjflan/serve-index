@@ -83,7 +83,25 @@
       $(window).on('content loaded', function(){
         $('search').on('keyup', search);
 		$('toggleView').on('click', doToggleView);
-      });
+
+		// Update image icons to be thumbnails
+		var imageTypes = ["jpg", "jpeg", "gif", "png", "svg"];
+        var links = $('files').all('a');
+        links.each(function (link){
+          var parent = link.parentElement;
+          var text = link.title.toLowerCase();
+          var extn = text.substr(text.lastIndexOf('.') + 1);
+          if (~ imageTypes.indexOf(extn)) {
+            link.removeClass("icon-image");
+            link.removeClass("icon-" + extn);
+            link.removeClass("icon");
+			var img = new Image(parent.clientHeight, parent.clientHeight);
+			img.src = link.href;
+			link.insertBefore(img, link.firstChild);
+          }
+		});
+
+	  });
     </script>
   </head>
   <body class="directory">
