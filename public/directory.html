@@ -82,10 +82,10 @@
 
       $(window).on('content loaded', function(){
         $('search').on('keyup', search);
-		$('toggleView').on('click', doToggleView);
+	$('toggleView').on('click', doToggleView);
 
-		// Update image icons to be thumbnails
-		var imageTypes = ["jpg", "jpeg", "gif", "png", "svg"];
+	// Update image icons to be thumbnails
+	var imageTypes = ["jpg", "jpeg", "gif", "png", "svg"];
         var links = $('files').all('a');
         links.each(function (link){
           var parent = link.parentElement;
@@ -95,13 +95,12 @@
             link.removeClass("icon-image");
             link.removeClass("icon-" + extn);
             link.removeClass("icon");
-			var img = new Image(parent.clientHeight, parent.clientHeight);
-			img.src = link.href;
-			link.insertBefore(img, link.firstChild);
-          }
-		});
-
-	  });
+		var img = new Image();
+		img.src = link.href;
+		link.insertBefore(img, link.firstChild);
+            }
+          });
+        });
     </script>
   </head>
   <body class="directory">

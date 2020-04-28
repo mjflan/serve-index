@@ -81,13 +81,17 @@ ul#files li {
 }
 ul#files li a {
   display: block;
-  height: 25px;
   border: 1px solid transparent;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   overflow: hidden;
   white-space: nowrap;
+}
+ul#files li a img {
+    max-width: 33%;
+    width: auto;
+    height: auto;
 }
 ul#files li a:focus,
 ul#files li a:hover {
